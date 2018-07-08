@@ -14,4 +14,7 @@ module "infra" {
 
 module "database" {
   source = "./Modules/database"
+  project_name = "${var.project_name}"
+  subnet1_id = "${module.network.subnet1_id}"
+  subnet2_id = "${module.network.subnet2_id}"
 }
