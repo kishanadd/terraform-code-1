@@ -1,0 +1,18 @@
+Attribute Names
+Below is an example of a resource configuration block which illustrates some general design patterns that can apply across all plugin object types:
+
+resource "aws_instance" "example" {
+  ami                    = "ami-408c7f28"
+  instance_type          = "t1.micro"
+  monitoring             = true
+  vpc_security_group_ids = [
+      "sg-1436abcf",
+  ]
+  tags          = {
+    Name        = "Application Server"
+    Environment = "production"
+  }
+   root_block_device {
+    delete_on_termination = false
+  }
+}
